@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 class Game(models.Model):
-	name = models.CharField(max_length='225')
+	name = models.CharField(max_length=225)
 	release_date = models.DateField()
-	multiplayer = models.BooleanField()
+	multiplayer = models.BooleanField(default=False)
 	image = models.ImageField()
 
 	PC = 'PC'

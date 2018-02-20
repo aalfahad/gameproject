@@ -18,4 +18,10 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('list/', views.game_list, name='game_list')
+    path('detail/', views.game_detail, name='game_detail'),
+    path('create/', views.game_create, name='game_create'),
+    path('update/', views.game_update, name='game_update'),
+    path('delete/', views.game_delete, name='game_delete'),
+    
 ]
