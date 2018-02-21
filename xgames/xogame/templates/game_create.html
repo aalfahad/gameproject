@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	Create
+{% endblock title %}
+
+{% block content %}
+	<form action="{% url 'game_create' %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{forms|crispy}}
+		<input type="submit" class="btn btn-outline-success" value="Create Game">
+	</form>
+{% endblock content %}

@@ -15,13 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from xogame import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('list/', views.game_list, name='game_list')
-    path('detail/', views.game_detail, name='game_detail'),
+    path('detail/<int:game_id>', views.game_detail, name='game_detail'),
     path('create/', views.game_create, name='game_create'),
-    path('update/', views.game_update, name='game_update'),
+    path('update/<int:game_id>', views.game_update, name='game_update'),
     path('delete/', views.game_delete, name='game_delete'),
     
 ]
+
+if settings.DEBUG:
+	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
